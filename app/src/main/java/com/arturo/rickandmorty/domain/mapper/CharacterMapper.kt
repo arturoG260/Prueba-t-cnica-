@@ -16,7 +16,8 @@ class CharacterMapper @Inject constructor() : DomainMapper<CharacterResponse, Ch
         origin = data?.origin?.name.orEmpty(),
         location = data?.location?.name.orEmpty(),
         episodes = data?.episode?.filterNotNull()?.parseIdsWithWhiteSpaces().orEmpty(),
-        created = data?.created.orEmpty()
+        created = data?.created.orEmpty(),
+        episodeUrls = data?.episode!!
     )
 
     override fun toDomainList(initial: List<CharacterResponse?>?): List<Character> =

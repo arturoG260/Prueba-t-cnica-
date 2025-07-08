@@ -10,5 +10,9 @@ data class Character(
     val origin: String,
     val location: String,
     val episodes: String,
-    val created: String
-)
+    val created: String,
+    val episodeUrls: List<String>
+){
+    // Propiedad calculada para obtener los IDs
+    val episodeIds: List<String> get() = episodeUrls.map { it.substringAfterLast("/") }
+}
